@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;.htaccess&apos; to &apos;Activity_One&apos;" description="Move &apos;.htaccess&apos; to &apos;Activity_One&apos;" destination="/Activity_One" element1="public/.htaccess" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1550966957687" updateReferences="true"/>
+</session>
