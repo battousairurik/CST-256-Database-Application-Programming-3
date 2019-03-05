@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/whoami','WhatsMyNameController@index'); 
+
+Route::get('/askme', function () { return view('whoami'); });

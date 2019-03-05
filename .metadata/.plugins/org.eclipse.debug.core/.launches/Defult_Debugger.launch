@@ -2,7 +2,7 @@
 <launchConfiguration type="org.eclipse.php.debug.core.launching.webPageLaunch">
     <booleanAttribute key="auto_generated_url" value="true"/>
     <stringAttribute key="base_url" value="http://localhost/Activity_One/"/>
-    <stringAttribute key="file_name" value="/Activity_One"/>
+    <stringAttribute key="file_name" value="/Activity_Projects"/>
     <booleanAttribute key="firstLineBreakpoint" value="false"/>
     <stringAttribute key="name" value="Default PHP Web Server"/>
     <booleanAttribute key="org.eclipse.php.debug.core.RunWithDebugInfo" value="true"/>
