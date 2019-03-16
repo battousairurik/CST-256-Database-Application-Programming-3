@@ -18,6 +18,6 @@ Route::get('/', function () {
 Route::get('/login', function () { return view('login'); });
 Route::post('/dologin','LoginController@index');
 
-Route::get('loginSuccess', function () { return view('loginSuccess'); });
+Route::get('loginSuccess', function () { return view('loginSuccess'); })->name('login.success');
 
-Route::get('loginFailure', function () { return view('loginFailure'); });
+Route::get('loginFailure', function () { return view('loginFailure'); })->name('login.sailure');

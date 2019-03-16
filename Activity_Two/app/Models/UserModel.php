@@ -1,13 +1,12 @@
 <?php
+
+namespace App\Models\UserModel;
+
 class UserModel{
     private $username;
     private $password;
     
     function __construct (){}
-    function __construct ($username, $password){
-        $this->set_username($username);
-        $this->set_password($password);
-    }
     
     function get_username (){
         return $this->username;

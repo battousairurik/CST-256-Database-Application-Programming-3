@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\Business\SecurityService;
 use Illuminate\Http\Request;
+use App\Models\UserModel;
 
 class LoginController extends Controller
 {
@@ -25,14 +26,19 @@ class LoginController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
         
-        $userModel = new \UserModel($username, $password);
+        $userModel = new UserModel();
+        $userModel->set_username($username);
+        $userModel->set_password($password);
         
         $service = new SecurityService();
-        $result = $service->login($userModel);
         
-        if(!$result){
-            
+        //If successful, redirect to success page
+        if($result = $service->login($userModel)){
+            return redirect()->route('login.success');
         }
-        
+        //if failure, redirect to login failure
+        return redirect()->route('login.failure');
     }
+    
+    
 }

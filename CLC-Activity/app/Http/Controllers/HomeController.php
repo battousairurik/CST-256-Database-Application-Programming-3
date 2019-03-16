@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //Retrieve all available job listing from database
+        $jobListings = \App\models\JobListingModel::all();
+        //return view with database table
+        return view('home')->with($jobListings); 
     }
 }

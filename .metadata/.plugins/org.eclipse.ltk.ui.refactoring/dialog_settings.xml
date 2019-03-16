@@ -6,5 +6,6 @@
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="true" key="updateReferences"/>
+		<item value="false" key="updateTextualMatches"/>
 	</section>
 </section>

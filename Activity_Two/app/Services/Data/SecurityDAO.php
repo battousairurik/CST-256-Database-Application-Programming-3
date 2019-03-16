@@ -17,7 +17,7 @@ class SecurityDAO{
         //Set Database
         $db_selected = mysql_select_db('activity2', $link);
         if (!$db_selected) {
-            die ('Can\'t use foo : ' . mysql_error());
+            die ('Can\'t use : ' . mysql_error());
         }
         //PHP string to establish query, find users by passed model username
         $query = "SELECT username, password FROM users WHERE username='$username'";

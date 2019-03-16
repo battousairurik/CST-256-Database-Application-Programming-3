@@ -13,8 +13,38 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in as <strong>USER</strong>!
+                    
+                    <!-- {{ $users = \App\User::all() }}
+                    {{ $education = \App\models\EducationModel::all() }}
+                    {{ $jobListings = \App\models\JobListingModel::all() }}
+                    {{ $test3 = \App\models\EmploymentModel::all() }}
+                    {{ $test4 = \App\models\SkillModel::all() }} -->
+                    
+                    <table>
+                    	<thead>
+                    		<tr>
+                    			<th>Company Name</th>
+                    			<th>Address</th>
+                    			<th>Job Title</th>
+                    			<th>Responsibilities</th>
+                    			<th>Salary</th>
+                    			<th>Pre-requisites</th>
+                    		</tr>
+                    	</thead>
+                    	<tbody>
+                    		@foreach ($jobListings as $listing)
+                    			<tr>
+                    				<td>{{$listing->companyName}}</td>
+                    				<td>{{$listing->address}}</td>
+                    				<td>{{$listing->jobTitle}}</td>
+                    				<td>{{$listing->responsibilities}}</td>
+                    				<td>{{$listing->salary}}</td>
+                    				<td>{{$listing->prerequisites}}</td>
+                    			</tr>
+                    		@endforeach
+                    	</tbody>
+                    </table>
+                    
                 </div>
             </div>
         </div>
