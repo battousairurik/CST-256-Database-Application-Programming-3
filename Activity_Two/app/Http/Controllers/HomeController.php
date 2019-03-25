@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -23,9 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //Retrieve all available job listing from database
-        $dataSet = \App\models\JobListingModel::all();
-        //return view with database table
-        return view('home')->with('dataSet', $dataSet); 
+        Log::info("Navigating to Welcome.blade");
+        return view('home');
     }
 }

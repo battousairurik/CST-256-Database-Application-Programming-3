@@ -27,7 +27,7 @@ class JobsController extends Controller
         //retrieve data set
         $dataSet = \App\models\EmploymentModel::all();
         //return view with data set
-        return view('userDashViews.jobs')->with($dataSet);
+        return view('userDashViews.jobs')->with('dataSet', $dataSet);
     }
     
     public function addJob (){
@@ -42,7 +42,7 @@ class JobsController extends Controller
         $responsibilities = $request->input('responsibilities');
         $numYears = $request->input('numYears');
         //Perform DB insert
-        DB::table('employment_models')->insert([
+        DB::table('employment')->insert([
             'email' => null,
             'companyName' => $companyName,
             'address' => $address,

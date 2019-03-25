@@ -21,6 +21,7 @@
 					@endif
 
 					<table>
+					@csrf
 						<thead>
 							<tr>
 								<th>Skill Title</th>

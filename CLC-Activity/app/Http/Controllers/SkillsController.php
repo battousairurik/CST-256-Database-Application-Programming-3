@@ -27,7 +27,7 @@ class SkillsController extends Controller
         //retrieve skills table from database
         $dataSet = \App\models\SkillModel::all();
         //pass skills table to view
-        return view('userDashViews.skills')->with($dataSet);
+        return view('userDashViews.skills')->with('dataSet', $dataSet);
     }
     
     public function addSkill(){
@@ -39,7 +39,7 @@ class SkillsController extends Controller
         $skillTitle = $request->input('skillTitle');
         $skillDescription = $request->input('skillDescription');
         //Perform DB insert
-        DB::table('skill_models')->insert([
+        $id = DB::table('skills')->insertGetId([
             'email' => null,
             'skillTitle' => $skillTitle,
             'skillDescription' => $skillDescription,
@@ -47,6 +47,9 @@ class SkillsController extends Controller
             'updated_at' => null
         ]);
         //navigate back to dashboard
-        $this->index();
+        //retrieve skills table from database
+        $dataSet = \App\models\SkillModel::all();
+        //pass skills table to view
+        return view('userDashViews.skills')->with('dataSet', $dataSet);
     }
 }

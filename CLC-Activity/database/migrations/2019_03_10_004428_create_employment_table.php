@@ -21,6 +21,7 @@ class CreateEmploymentTable extends Migration
             $table->string('job_title');
             $table->string('responsibilities');
             $table->integer('num_years');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

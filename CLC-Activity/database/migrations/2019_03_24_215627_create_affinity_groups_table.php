@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSkillsTable extends Migration
+class CreateAffinityGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSkillsTable extends Migration
      */
     public function up()
     {
-        Schema::create('skills', function (Blueprint $table) {
-            $table->bigIncrements('id')->unique();
-            $table->string('email');
-            $table->string('skill_title');
-            $table->string('skill_description');
+        Schema::create('affinity_groups', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('Education');
+            $table->string('Computer_Sciences');
+            $table->string('Medical_Sciences');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateSkillsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skills');
+        Schema::dropIfExists('affinity_groups');
     }
 }

@@ -27,7 +27,7 @@ class EducationController extends Controller
         //retrieve users education information
         $dataSet = \App\models\EducationModel::all();
         //Display view with users education information
-        return view('userDashViews.education')->with($dataSet);
+        return view('userDashViews.education')->with('dataSet', $dataSet);
     }
     
     public function addEducation(){
@@ -42,15 +42,13 @@ class EducationController extends Controller
         $degree = $request->input('degree');
         $numYears = $request->input('numYears');
         //perform DB insert
-        DB::table('education_models')->insert([
+        $id = DB::table('education')->insertGetId([
             'email' => null,
             'school_name' => $schoolName,
             'address' => $address,
             'education_level' => $educationLevel,
             'degree' => $degree,
             'num_years' => $numYears,
-            'created_at' => null,
-            'updated_at' => null
         ]);
         //navigate back to dashboard
         $this->index();

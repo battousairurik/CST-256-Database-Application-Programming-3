@@ -22,6 +22,7 @@ class CreateJobListingTable extends Migration
             $table->string('responsibilities');
             $table->integer('salary');
             $table->string('prerequisites');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

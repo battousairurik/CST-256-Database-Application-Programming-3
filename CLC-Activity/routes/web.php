@@ -43,3 +43,4 @@ Route::prefix('education')->group(function(){
     Route::post('/addEducation', 'EducationController@submitEducation')->name('education.addEducation.submit');
 });
 
+Route::resource('AffinityGroups', 'AffinityGroupsController');

@@ -6,4 +6,11 @@
 		<item value="C:\MAMP\htdocs\CST-256\CLC-Activity"/>
 		<item value="C:\MAMP\htdocs\CST-256\Activity_One"/>
 	</list>
+	<section name="CleanDialogSettings">
+		<item value="500" key="DIALOG_WIDTH"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="402" key="DIALOG_HEIGHT"/>
+		<item value="433" key="DIALOG_X_ORIGIN"/>
+		<item value="116" key="DIALOG_Y_ORIGIN"/>
+	</section>
 </section>

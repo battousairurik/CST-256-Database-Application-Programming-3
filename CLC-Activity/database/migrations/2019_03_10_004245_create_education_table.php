@@ -21,6 +21,7 @@ class CreateEducationTable extends Migration
             $table->string('education_level');
             $table->string('degree');
             $table->string('num_years');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
