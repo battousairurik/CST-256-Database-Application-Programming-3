@@ -5,7 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">User Dashboard</div>
+                <div class="card-header">User Dashboard
+                <div class="navbar">
+						<div class="navbar-inner">
+							<ul class="nav">
+								<li><a href="{{ route('jobs.search') }}">Search for Job</a></li>
+							</ul>
+						</div>
+					</div>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -24,22 +32,18 @@
                     	<thead>
                     		<tr>
                     			<th>Company Name</th>
-                    			<th>Address</th>
                     			<th>Job Title</th>
-                    			<th>Responsibilities</th>
                     			<th>Salary</th>
-                    			<th>Pre-requisites</th>
+                    			<th>Apply</th>
                     		</tr>
                     	</thead>
                     	<tbody>
                     		@foreach ($jobListings as $listing)
                     			<tr>
-                    				<td>{{$listing->companyName}}</td>
-                    				<td>{{$listing->address}}</td>
-                    				<td>{{$listing->jobTitle}}</td>
-                    				<td>{{$listing->responsibilities}}</td>
+                    				<td>{{$listing->company_name}}</td>
+                    				<td>{{$listing->job_title}}</td>
                     				<td>{{$listing->salary}}</td>
-                    				<td>{{$listing->prerequisites}}</td>
+                    				<td><a href="{{ route('jobs.apply') }}">Apply</a></td>
                     			</tr>
                     		@endforeach
                     	</tbody>

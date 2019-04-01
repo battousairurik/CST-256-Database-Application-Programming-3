@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\models\SkillModel;
 
 class SkillsController extends Controller
 {
@@ -35,21 +36,13 @@ class SkillsController extends Controller
         return view ('userDashViews.AddSkill');
     }
     public function submitSkill(Request $request){
+        $skill = new SkillModel();
         //Set parameters for query
-        $skillTitle = $request->input('skillTitle');
-        $skillDescription = $request->input('skillDescription');
-        //Perform DB insert
-        $id = DB::table('skills')->insertGetId([
-            'email' => null,
-            'skillTitle' => $skillTitle,
-            'skillDescription' => $skillDescription,
-            'created_at' => null,
-            'updated_at' => null
-        ]);
-        //navigate back to dashboard
-        //retrieve skills table from database
-        $dataSet = \App\models\SkillModel::all();
-        //pass skills table to view
-        return view('userDashViews.skills')->with('dataSet', $dataSet);
+        $skill->skillTitle = $request->input('skillTitle');
+        $skill->skillDescription = $request->input('skillDescription');
+        //SAve model to DB
+        $skill->save();
+        //Redirect
+        return redirect()->route('skills.dashboard');
     }
 }

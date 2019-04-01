@@ -33,11 +33,11 @@
 						<tbody>
 							@foreach ($dataSet as $data)
 							<tr>
-								<td>{{$data->companyName}}</td>
+								<td>{{$data->company_name}}</td>
 								<td>{{$data->address}}</td>
-								<td>{{$data->jobTitle}}</td>
+								<td>{{$data->job_title}}</td>
 								<td>{{$data->responsibilities}}</td>
-								<td>{{$data->numYears}}</td>
+								<td>{{$data->num_years}}</td>
 							</tr>
 							@endforeach
 						</tbody>

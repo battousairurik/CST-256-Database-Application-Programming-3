@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\models\EducationModel;
 
 class EducationController extends Controller
 {
@@ -35,22 +36,16 @@ class EducationController extends Controller
         return view ('userDashViews.AddEducationHistory');
     }
     public function submitEducation(Request $request){
+        $education = new EducationModel();
         //Set parameters for query
-        $schoolName = $request->input('schoolName');
-        $address = $request->input('address');
-        $educationLevel = $request->input('educationLevel');
-        $degree = $request->input('degree');
-        $numYears = $request->input('numYears');
-        //perform DB insert
-        $id = DB::table('education')->insertGetId([
-            'email' => null,
-            'school_name' => $schoolName,
-            'address' => $address,
-            'education_level' => $educationLevel,
-            'degree' => $degree,
-            'num_years' => $numYears,
-        ]);
-        //navigate back to dashboard
-        $this->index();
+        $education->schoolName = $request->input('schoolName');
+        $education->address = $request->input('address');
+        $education->educationLevel = $request->input('educationLevel');
+        $education->degree = $request->input('degree');
+        $education->numYears = $request->input('numYears');
+        //Save Model to DB
+        $education->save();
+        //Redirect
+        return redirect()->route('education.dashboard');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\models\EmploymentModel;
 
 class JobsController extends Controller
 {
@@ -35,24 +36,35 @@ class JobsController extends Controller
         return view ('userDashViews.AddJobHistory');
     }
     public function submitJob(Request $request){
+        $employment = new EmploymentModel();
         //Set parameters for query
-        $companyName = $request->input('companyName');
-        $address = $request->input('address');
-        $jobTitle = $request->input('jobTitle');
-        $responsibilities = $request->input('responsibilities');
-        $numYears = $request->input('numYears');
-        //Perform DB insert
-        DB::table('employment')->insert([
-            'email' => null,
-            'companyName' => $companyName,
-            'address' => $address,
-            'jobTitle' => $jobTitle,
-            'responsibilities' => $responsibilities,
-            'numYears' => $numYears,
-            'created_at' => null,
-            'updated_at' => null
-        ]);
-        //navigate back to dashboard
-        $this->index();
+        $employment->companyName = $request->input('companyName');
+        $employment->address = $request->input('address');
+        $employment->jobTitle = $request->input('jobTitle');
+        $employment->responsibilities = $request->input('responsibilities');
+        $employment->numYears = $request->input('numYears');
+        //Save Model to DB
+        $employment->save();
+        //Redirect
+        return redirect()->route('jobs.dashboard');
+    }
+    public function searchJob(){
+        return view ('userDashViews.SearchJob');
+    }
+    public function searchSubmit(Request $request){
+        
+        $jobTitle = Request::get('jobTitle');
+        $jobDescription = Request::get('jobDescription');
+        
+        $result = DB::table('employment')
+        ->select(DB::raw("*"))
+        ->where('job_title', '=', $jobTitle)
+        ->where('job_description', '=', $jobDescription)
+        ->get();
+        
+        return view ('userDashViews.SearchJobDisplay')->with('dataSet', $result);
+    }
+    public function applyJob(){
+        return view('userDashViews.JobsApply');
     }
 }

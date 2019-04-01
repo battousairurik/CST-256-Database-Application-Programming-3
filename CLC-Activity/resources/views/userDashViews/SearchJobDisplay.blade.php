@@ -4,11 +4,11 @@
 		<div class="col-md-8">
 			<div class="card">
 				<div class="card-header">
-					Skills Dashboard
+					Custom Search Display
 					<div class="navbar">
 						<div class="navbar-inner">
 							<ul class="nav">
-								<li><a href="{{ route('skills.addSkill') }}">Add New SKills</a></li>
+								<li><a href="{{ route('jobs.search') }}">Return to search</a></li>
 							</ul>
 						</div>
 					</div>
@@ -24,15 +24,17 @@
 					@csrf
 						<thead>
 							<tr>
-								<th>Skill Title</th>
-								<th>Skill Description</th>
+								<th>Job Title</th>
+								<th>Job Description</th>
+								<th>Apply</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach ($dataSet as $data)
 							<tr>
-								<td>{{$data->skill_title}}</td>
-								<td>{{$data->skill_description}}</td>
+								<td>{{$data->job_title}}</td>
+								<td>{{$data->job_description}}</td>
+								<td><a href="{{ route('jobs.apply') }}">Apply</a></td>
 							</tr>
 							@endforeach
 						</tbody>

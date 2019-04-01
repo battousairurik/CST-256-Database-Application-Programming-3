@@ -61,6 +61,10 @@
                                         {{ __('Logout') }}
                                     </a>
 									
+									<a class="dropdown-item" href="{{ route('home') }}">
+                                        {{ __('Dashboard') }}
+                                    </a>
+									
 									<a class="dropdown-item" href="{{ route('jobs.dashboard') }}">
                                         {{ __('Jobs') }}
                                     </a>
