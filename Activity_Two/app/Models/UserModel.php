@@ -2,22 +2,12 @@
 
 namespace App\Models\UserModel;
 
-class UserModel{
-    private $username;
-    private $password;
+use Illuminate\Database\Eloquent\Model;
+
+class UserModel extends Model{
     
-    function __construct (){}
+    protected $fillable = [
+        'username', 'password',
+    ];
     
-    function get_username (){
-        return $this->username;
-    }
-    function get_password(){
-        return $this->password;
-    }
-    function set_username ($username){
-        $this->username = $username;
-    }
-    function set_password($password){
-        $this->password = $password;
-    }
 }

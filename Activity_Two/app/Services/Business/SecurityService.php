@@ -7,10 +7,12 @@ class SecurityService{
     
     function __construct(){}
     
-    function login(\UserModel $userModel){
+    function login($userModel){
         
         $securityDAO = new SecurityDAO();
         $result = $securityDAO->findByUser($userModel);
         return $result;
     }
+    
+    
 }

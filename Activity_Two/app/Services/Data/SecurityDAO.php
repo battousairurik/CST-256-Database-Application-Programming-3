@@ -1,11 +1,13 @@
 <?php
 namespace App\Services\Data;
 
+use App\Models\UserModel\UserModel;
+
 class SecurityDAO{
     //Activity2 part 3.B.IV.
     function __construct() {}
     
-    function findByUser (\UserModel $userModel){
+    function findByUser ($userModel){
         //Pass object variables to local variables for function consistency
         $username = $userModel->get_username();
         $password = $userModel->get_password();
@@ -36,5 +38,14 @@ class SecurityDAO{
             }
         }
         return false;
+    }
+    
+    function findAllUsers (){
+        $dataSet = UserModel::get()->pluck('username');
+        return $dataSet;
+    }
+    
+    function findUserByID ($ID){
+        $dataSet = UserModel::get()->pluck('id', $ID);
     }
 }

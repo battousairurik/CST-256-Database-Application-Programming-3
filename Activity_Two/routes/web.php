@@ -29,3 +29,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('tag', 'TagsController');
+
+Route::resource('/userrest', 'UserRestController'); 
