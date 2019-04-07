@@ -20,10 +20,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->group(function(){
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/groupDash', 'AdminAffinityGroupController@index')->name('admin.affinityGroup.dash');
+    Route::get('/groupCreate', 'AdminAffinityGroupController@create')->name('admin.affinityGroup.create');
+    Route::get('/groupEdit', 'AdminAffinityGroupController@edit')->name('admin.affinityGroup.edit');
+    Route::post('/groupStore', 'AdminAffinityGroupController@store')->name('admin.affinityGroup.store');
 });
 
 Route::prefix('jobs')->group(function(){

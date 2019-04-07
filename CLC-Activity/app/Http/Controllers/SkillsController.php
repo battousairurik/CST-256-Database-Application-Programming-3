@@ -40,7 +40,7 @@ class SkillsController extends Controller
         //Set parameters for query
         $skill->skillTitle = $request->input('skillTitle');
         $skill->skillDescription = $request->input('skillDescription');
-        //SAve model to DB
+        //Save model to DB
         $skill->save();
         //Redirect
         return redirect()->route('skills.dashboard');

@@ -8,7 +8,7 @@ class AffinityGroupsModel extends Model{
     protected $table = "affinity_groups";
     
     protected $fillable = [
-        'Education', 'Computer_Sciences', 'Medical_Sciences',
+        'id', 'group_name', 'group_description',
     ];
     
 }

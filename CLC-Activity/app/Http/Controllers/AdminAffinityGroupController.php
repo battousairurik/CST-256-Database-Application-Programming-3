@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\models\AffinityGroupsModel;
 
 class AdminAffinityGroupController extends Controller
 {
@@ -14,6 +15,7 @@ class AdminAffinityGroupController extends Controller
     public function index()
     {
         //
+        return view('adminViews.ListAffinityGroups');
     }
 
     /**
@@ -24,6 +26,7 @@ class AdminAffinityGroupController extends Controller
     public function create()
     {
         //
+        return view('adminViews.AddAffinityGroup');
     }
 
     /**
@@ -34,7 +37,12 @@ class AdminAffinityGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $group = new AffinityGroupsModel();
+        
+        $group->group_name = $request->input('group_name');
+        $group->group_description = $request->input('group_description');
+        
+        $group->save();
     }
 
     /**
@@ -57,6 +65,7 @@ class AdminAffinityGroupController extends Controller
     public function edit($id)
     {
         //
+        return view('adminViews.EditAffinityGroups');
     }
 
     /**
@@ -68,7 +77,13 @@ class AdminAffinityGroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Retrieve DB instance
+        $group = App/models/AffinityGroupsModel::find($id);
+        //Overwrite fields
+        $group->group_name = $request->input('group_name');
+        $group->group_description = $request->input('group_description');
+        //Save new instance
+        $group->save();
     }
 
     /**

@@ -20,7 +20,7 @@
 						}}</div>
 					@endif
 
-					<form method="post" action="{{ route('skills.addSkill.submit') }}" >
+					<form method="post" action="{{ route('skills.addSkill.submit') }}">
 						<table>
 							<tr>
 								<td>Skill Title</td>

@@ -11,7 +11,7 @@
 						}}</div>
 					@endif
 
-					<form action="dologin3" method="POST">
+					<form action="{{ route('login3.login') }}" method="POST">
 						<input type="hidden" name="_token"
 							value="<?php echo csrf_token() ?>" />
 						<h2>Please enter your Login Credentials</h2>
